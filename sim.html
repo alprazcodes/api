@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      // Função para obter a data atual de Brasília
+      function getDataBrasilia() {
+        const dataAtual = new Date();
+        const fusoHorarioBrasilia = -3 * 60; // GMT-3
+        const deslocamentoUTC = dataAtual.getTimezoneOffset();
+        const deslocamentoBrasilia = deslocamentoUTC - fusoHorarioBrasilia * 60 * 1000;
+        const dataBrasilia = new Date(dataAtual.getTime() + deslocamentoBrasilia);
+        return dataBrasilia.toISOString().split('T')[0];
+      }
+
+      // Exibir a data atual de Brasília
+      document.write(getDataBrasilia());
+    </script>
+  </body>
+</html>
